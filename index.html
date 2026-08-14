@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Stock Report: Vijaya Diagnostic Breakout, High Volume Table & Today's Earnings Calls - Executive Daily Report</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --border-color: #e2e8f0;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --accent-blue: #0284c7;
+      --accent-light: #e0f2fe;
+      --accent-emerald: #059669;
+      --accent-emerald-bg: #dcfce7;
+      --accent-amber: #d97706;
+      --accent-amber-bg: #fef3c7;
+      --accent-red: #dc2626;
+      --accent-red-bg: #fee2e2;
+      --shadow-card: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+    }
+
+    [data-theme="dark"] {
+      --bg-page: #0b1120;
+      --bg-card: #1e293b;
+      --border-color: #334155;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-blue: #38bdf8;
+      --accent-light: #0369a1;
+      --accent-emerald: #34d399;
+      --accent-emerald-bg: #064e3b;
+      --accent-amber: #fbbf24;
+      --accent-amber-bg: #78350f;
+      --accent-red: #f87171;
+      --accent-red-bg: #7f1d1d;
+      --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.3);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding-bottom: 60px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    header {
+      background-color: var(--bg-card);
+      border-bottom: 1px solid var(--border-color);
+      padding: 16px 28px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+
+    .header-container {
+      max-width: 1050px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, #0284c7, #0369a1);
+      color: #fff;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-family: 'Outfit', sans-serif;
+      font-size: 20px;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+    }
+
+    .site-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .btn-toggle {
+      background: var(--bg-page);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .btn-toggle:hover {
+      border-color: var(--accent-blue);
+    }
+
+    main {
+      max-width: 1050px;
+      margin: 32px auto;
+      padding: 0 20px;
+    }
+
+    .brief-meta-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 28px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .brief-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: var(--accent-light);
+      color: var(--accent-blue);
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .brief-subject {
+      font-family: 'Outfit', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 16px;
+      color: var(--text-main);
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      border-top: 1px solid var(--border-color);
+      padding-top: 16px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .meta-item strong {
+      color: var(--text-main);
+    }
+
+    .email-content-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .section-header-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 14px 20px;
+      margin-top: 8px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .section-icon {
+      font-size: 22px;
+    }
+
+    .section-header-card h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .breakout-alert-box {
+      background: var(--accent-amber-bg);
+      border: 1px solid var(--accent-amber);
+      border-radius: 14px;
+      padding: 18px 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      color: var(--text-main);
+      box-shadow: 0 4px 14px rgba(217, 119, 6, 0.15);
+    }
+
+    .alert-icon {
+      font-size: 24px;
+    }
+
+    .bullet-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 14px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      box-shadow: var(--shadow-card);
+      font-size: 15px;
+    }
+
+    .bullet-dot {
+      color: var(--accent-blue);
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .text-paragraph {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 14px 20px;
+      font-size: 15px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .table-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 16px;
+      overflow-x: auto;
+      box-shadow: var(--shadow-card);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      text-align: left;
+    }
+
+    .data-table th {
+      background: var(--bg-page);
+      color: var(--text-muted);
+      font-weight: 700;
+      padding: 12px 16px;
+      border-bottom: 2px solid var(--border-color);
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .data-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-main);
+    }
+
+    .data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .badge-change {
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 13px;
+      display: inline-block;
+    }
+
+    .badge-change.pos {
+      background: var(--accent-emerald-bg);
+      color: var(--accent-emerald);
+    }
+
+    .badge-change.neg {
+      background: var(--accent-red-bg);
+      color: var(--accent-red);
+    }
+
+    .surge-tag {
+      background: var(--accent-light);
+      color: var(--accent-blue);
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 8px;
+    }
+
+    .link-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 16px 20px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-blue);
+      color: #fff !important;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+      transition: opacity 0.2s;
+    }
+
+    .link-btn:hover {
+      opacity: 0.9;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <div class="logo-area">
+        <div class="logo-icon">DB</div>
+        <div class="site-title">Daily Stock Briefing</div>
+      </div>
+      <button class="btn-toggle" onclick="toggleTheme()">
+        <span id="theme-icon">🌙</span> <span id="theme-text">Dark Mode</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <div class="brief-meta-card">
+      <div class="brief-tag">⚡ Automated 7:00 AM Email Report</div>
+      <h1 class="brief-subject">Daily Stock Report: Vijaya Diagnostic Breakout, High Volume Table & Today's Earnings Calls</h1>
+      <div class="meta-grid">
+        <div class="meta-item"><strong>From:</strong> Digant Joshi <digant73@gmail.com></div>
+        <div class="meta-item"><strong>Received:</strong> Friday, August 14, 2026 at 7:00 AM IST</div>
+        <div class="meta-item"><strong>Page Updated:</strong> August 14, 2026 - 06:36 PM IST</div>
+      </div>
+    </div>
+
+    <div class="email-content-container">
+      <p class="text-paragraph">Hi Digant,</p>
+<p class="text-paragraph">Here is your daily stock list report, market summary, circuit status, volume surge table, level breach alert, and corporate calendar update for Friday, August 14, 2026:</p>
+<div class="section-header-card"><span class="section-icon">📊</span><h3>Major Indian Market Summary:</h3></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div><strong>GIFT</strong> Nifty indicates a flat-to-positive start near 24,<strong>467</strong> (+0.29%) this morning.</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div>In Thursday's session (August 13), Indian equities ended rangebound with Nifty closing at 24,<strong>395</strong> (-40 points) and Sensex up <strong>113</strong> points at 78,<strong>080</strong>.</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div>Investor focus today is on major Q1 earnings releases (including <strong>NMDC</strong>, Borosil, <strong>NMDC</strong> Steel) and global macroeconomic trends ahead of the weekend.</div></div>
+<div class="section-header-card"><span class="section-icon">🚨</span><h3>Price Level Breach Alert:</h3></div>
+<div class="breakout-alert-box"><div class="alert-icon">⚡</div><div><strong>BREAKOUT ALERT</strong><br/>- VIJAYA (Vijaya Diagnostic Centre Ltd): NEW BREAKOUT ALERT! Current Price ₹1,497.90 has crossed above your set Up Level threshold of ₹1,425.00.</div></div>
+<div class="section-header-card"><span class="section-icon">⚡</span><h3>Upper & Lower Circuit Check:</h3></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div><strong>E2E</strong> Networks Ltd (e2e): Trading near session high at ₹<strong>640</strong>.50 (+5.0% Upper Circuit) on strong AI <strong>GPU</strong> cloud infrastructure demand.</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div>No other tracked stock hit upper or lower circuit limits in yesterday's session.</div></div>
+<div class="section-header-card"><span class="section-icon">🔥</span><h3>High Volume Surge Stocks (> 2x 1-Month Avg Volume):</h3></div>
+<div class="table-container"><table class="data-table"><thead><tr><th>Stock</th><th>Current Price (₹)</th><th>Change in Price (% / ₹)</th><th>Volume</th><th>Volume Surge Times</th></tr></thead><tbody><tr><td>Sarda Energy & Minerals (SARDAEN)</td><td>₹529.25</td><td><span class="badge-change pos">+7.8%</span></td><td>21,370,686</td><td><span class="surge-tag">81.2x</span></td></tr><tr><td>Fineotex Chemical (fcl)</td><td>₹41.80</td><td><span class="badge-change neg">-1.4%</span></td><td>5,294,086</td><td><span class="surge-tag">14.2x</span></td></tr><tr><td>Gujarat Pipavav Port (GPPL)</td><td>₹151.95</td><td><span class="badge-change pos">+2.1%</span></td><td>9,224,012</td><td><span class="surge-tag">9.45x</span></td></tr><tr><td>Jindal Poly Invest (JPOLYINVST)</td><td>₹1,068.30</td><td><span class="badge-change pos">+1.8%</span></td><td>49,750</td><td><span class="surge-tag">4.68x</span></td></tr><tr><td>Jullundur Motor Agency (jma)</td><td>₹88.90</td><td><span class="badge-change pos">+1.6%</span></td><td>22,658</td><td><span class="surge-tag">3.83x</span></td></tr><tr><td>Edelweiss Financial (EDELWEISS)</td><td>₹124.26</td><td><span class="badge-change pos">+4.8%</span></td><td>7,915,912</td><td><span class="surge-tag">2.91x</span></td></tr><tr><td>IFCI Ltd (IFCI)</td><td>₹76.55</td><td><span class="badge-change pos">+1.3%</span></td><td>35,636,368</td><td><span class="surge-tag">2.47x</span></td></tr><tr><td>Jio Financial Services (JIOFIN)</td><td>₹255.50</td><td><span class="badge-change pos">+0.7%</span></td><td>43,028,580</td><td><span class="surge-tag">2.05x</span></td></tr></tbody></table></div>
+<div class="section-header-card"><span class="section-icon">📌</span><h3>Moving Average Crossover Status:</h3></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div>No new Golden Cross or Death Cross transitions occurred today. (Ongoing/static crossovers are omitted per your preference).</div></div>
+<div class="section-header-card"><span class="section-icon">📅</span><h3>Corporate Events Scheduled Today (Friday, August 14, 2026):</h3></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div>Borosil Ltd: Q1 <strong>FY27</strong> Board Meeting (Results approval).</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div><strong>NMDC</strong> Ltd & <strong>NMDC</strong> Steel Ltd: Q1 <strong>FY27</strong> Board Meetings (Results approval).</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div>Ather Energy Ltd: Extraordinary General Meeting (<strong>EGM</strong>) at 11:30 AM <strong>IST</strong> (Approval for ₹1,<strong>200</strong> Cr preferential issue).</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div><strong>DCW</strong> Ltd: Q1 <strong>FY27</strong> Earnings Call at 2:00 PM <strong>IST</strong>.</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div>Kuantum Papers Ltd: Q1 <strong>FY27</strong> Earnings Call at 3:00 PM <strong>IST</strong>.</div></div>
+<div class="section-header-card"><span class="section-icon">📅</span><h3>Upcoming Events in Google Calendar:</h3></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div>Wednesday, Aug 19: Ather Energy Ltd (13th <strong>AGM</strong> at 11:00 AM <strong>IST</strong>).</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div>Monday, Aug 31: Indian Oil Corporation Ltd (67th <strong>AGM</strong> at 11:00 AM <strong>IST</strong>), Savita Oil Technologies Ltd (65th <strong>AGM</strong> at 11:00 AM <strong>IST</strong>).</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div>Wednesday, Sep 2: Deccan Gold Mines Ltd (<strong>EGM</strong> at 11:30 AM <strong>IST</strong>).</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div>Wednesday, Sep 16: <strong>HCL</strong> Infosystems Ltd (40th <strong>AGM</strong> at 11:00 AM <strong>IST</strong>).</div></div>
+<div class="link-card">Spreadsheet Tracker Link: <a href="https://docs.google.com/spreadsheets/d/1_rWhyap8gO-u8ehP1vDCiad-RwnFjGBCn2R5qiis4_A/edit" target="_blank" rel="noopener" class="link-btn">🔗 Google Sheets Daily Tracker</a></div>
+    </div>
+
+    <footer>
+      Auto-generated from Daily 7 AM Email • Powered by GitHub Actions & Pages
+    </footer>
+  </main>
+
+  <script>
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const target = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', target);
+      document.getElementById('theme-icon').innerText = target === 'dark' ? '☀️' : '🌙';
+      document.getElementById('theme-text').innerText = target === 'dark' ? 'Light Mode' : 'Dark Mode';
+      localStorage.setItem('theme', target);
+    }
+
+    const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    if (savedTheme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      document.getElementById('theme-icon').innerText = '☀️';
+      document.getElementById('theme-text').innerText = 'Light Mode';
+    }
+  </script>
+</body>
+</html>
