@@ -167,8 +167,15 @@ def fetch_latest_daily_email():
         print("EMAIL_USER/EMAIL_PASS not set. Checking for mock email payload...")
         return None
 
-    print(f"Connecting to IMAP server {IMAP_SERVER}:{IMAP_PORT}...")
-    mail = imaplib.IMAP4_SSL(IMAP_SERVER, IMAP_PORT)
+    server_to_use = IMAP_SERVER if IMAP_SERVER and "." in IMAP_SERVER else "imap.gmail.com"
+    print(f"Connecting to IMAP server {server_to_use}:{IMAP_PORT}...")
+    try:
+        mail = imaplib.IMAP4_SSL(server_to_use, IMAP_PORT)
+    except Exception as e:
+        print(f"Connection to '{server_to_use}' failed ({e}). Falling back to 'imap.gmail.com'...")
+        server_to_use = "imap.gmail.com"
+        mail = imaplib.IMAP4_SSL(server_to_use, IMAP_PORT)
+    
     mail.login(EMAIL_USER, EMAIL_PASS)
     mail.select("INBOX")
 
