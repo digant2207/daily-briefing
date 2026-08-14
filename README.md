@@ -41,11 +41,11 @@ Add the following Secrets:
 ---
 
 ### Step 3: Test & Run Workflow
-1. Go to the **Actions** tab in your GitHub repository.
+1. Go to the **Actions** tab in your GitHub repository (`https://github.com/digant2207/daily-briefing`).
 2. Select **Fetch Daily Briefing Email & Update GitHub Page** on the left.
 3. Click **Run workflow** -> **Run workflow**.
 4. Once completed, your GitHub Pages site will be live at:
-   `https://<your-username>.github.io/<repo-name>/`
+   `https://digant2207.github.io/daily-briefing/`
 
 ---
 
