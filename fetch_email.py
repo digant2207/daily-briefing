@@ -13,12 +13,13 @@ except ImportError:
     HAS_BS4 = False
 
 # Configuration from Environment Variables (GitHub Secrets)
-IMAP_SERVER = os.getenv("IMAP_SERVER", "imap.gmail.com")
-IMAP_PORT = int(os.getenv("IMAP_PORT", "993"))
-EMAIL_USER = os.getenv("EMAIL_USER", "")
-EMAIL_PASS = os.getenv("EMAIL_PASS", "")
-SENDER_FILTER = os.getenv("SENDER_FILTER", "") # e.g. "digant73@gmail.com" or empty
-SUBJECT_FILTER = os.getenv("SUBJECT_FILTER", "") # e.g. "Daily Stock Report" or empty
+IMAP_SERVER = os.getenv("IMAP_SERVER", "imap.gmail.com").strip() or "imap.gmail.com"
+raw_port = os.getenv("IMAP_PORT", "993").strip()
+IMAP_PORT = int(raw_port) if raw_port.isdigit() else 993
+EMAIL_USER = os.getenv("EMAIL_USER", "").strip()
+EMAIL_PASS = os.getenv("EMAIL_PASS", "").strip()
+SENDER_FILTER = os.getenv("SENDER_FILTER", "").strip() # e.g. "digant73@gmail.com" or empty
+SUBJECT_FILTER = os.getenv("SUBJECT_FILTER", "").strip() # e.g. "Daily Stock Report" or empty
 
 def clean_header_str(header_value):
     if not header_value:
