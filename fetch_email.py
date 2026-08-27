@@ -178,28 +178,30 @@ def fetch_latest_daily_email():
     
     mail.login(EMAIL_USER, EMAIL_PASS)
     mail.select("INBOX")
-
-    today_str = date.today().strftime("%d-%b-%Y")
-    search_query = f'(SINCE "{today_str}")'
-    if SENDER_FILTER:
-        search_query += f' (FROM "{SENDER_FILTER}")'
+    # Build search query compliant with IMAP RFC 3501 syntax
+    search_args = []
     if SUBJECT_FILTER:
-        search_query += f' (SUBJECT "{SUBJECT_FILTER}")'
+        search_args.extend(["SUBJECT", SUBJECT_FILTER])
+    elif SENDER_FILTER:
+        search_args.extend(["FROM", SENDER_FILTER])
+    else:
+        search_args.append("ALL")
 
-    print(f"Searching IMAP with query: {search_query}")
-    status, messages = mail.search(None, search_query)
-    mail_ids = messages[0].split()
+    print(f"Searching IMAP INBOX with parameters: {search_args}")
+    try:
+        status, messages = mail.search(None, *search_args)
+        mail_ids = messages[0].split()
+    except Exception as err:
+        print(f"Search with parameters {search_args} failed ({err}). Falling back to 'ALL'...")
+        mail_ids = []
 
     if not mail_ids or mail_ids == [b'']:
-        print("No email today. Searching recent messages...")
-        fallback_query = "ALL"
-        if SUBJECT_FILTER:
-            fallback_query = f'(SUBJECT "{SUBJECT_FILTER}")'
-        status, messages = mail.search(None, fallback_query)
+        print("No emails returned with filter. Searching recent messages with 'ALL'...")
+        status, messages = mail.search(None, "ALL")
         mail_ids = messages[0].split()
 
     if not mail_ids or mail_ids == [b'']:
-        print("No matching email found.")
+        print("No email messages found in INBOX.")
         mail.logout()
         return None
 
