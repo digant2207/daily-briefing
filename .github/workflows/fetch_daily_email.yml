@@ -47,12 +47,12 @@ jobs:
 
       - name: Fetch Daily Email & Build HTML Page
         env:
-          IMAP_SERVER: ${{ secrets.IMAP_SERVER || 'imap.gmail.com' }}
-          IMAP_PORT: ${{ secrets.IMAP_PORT || '993' }}
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+          IMAP_SERVER: ${{ secrets.IMAP_SERVER }}
+          IMAP_PORT: ${{ secrets.IMAP_PORT }}
           SENDER_FILTER: ${{ secrets.SENDER_FILTER }}
-          SUBJECT_FILTER: ${{ secrets.SUBJECT_FILTER || 'Daily Stock Report' }}
+          SUBJECT_FILTER: ${{ secrets.SUBJECT_FILTER }}
         run: |
           python fetch_email.py
 
