@@ -3,60 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Your weekly Dose of Derivatives 📈 - Executive Daily Report</title>
+  <title>Daily Stock Report: Gap-Up Opening Setup, High Volume Surges & Corporate Updates - Daily Stock Briefing</title>
   
-  <!-- iOS Web App & Home Screen Icon Tags -->
+  <!-- iOS & Android Web App Meta Tags -->
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="manifest" href="site.webmanifest">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="Daily Brief">
-  <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0b1120" media="(prefers-color-scheme: dark)">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Daily Stocks">
+  <meta name="theme-color" content="#0f172a">
 
+  <!-- Modern Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+  
   <style>
     :root {
-      --bg-page: #f8fafc;
+      --bg-page: #f1f5f9;
       --bg-card: #ffffff;
+      --bg-card-subtle: #f8fafc;
       --border-color: #e2e8f0;
       --text-main: #0f172a;
       --text-muted: #64748b;
       --accent-blue: #0284c7;
-      --accent-light: #e0f2fe;
+      --accent-blue-bg: #e0f2fe;
       --accent-emerald: #059669;
       --accent-emerald-bg: #dcfce7;
       --accent-amber: #d97706;
       --accent-amber-bg: #fef3c7;
       --accent-red: #dc2626;
       --accent-red-bg: #fee2e2;
-      --shadow-card: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+      --accent-purple: #7c3aed;
+      --accent-purple-bg: #f3e8ff;
+      --accent-indigo: #4f46e5;
+      --accent-indigo-bg: #e0e7ff;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 16px -2px rgba(15, 23, 42, 0.08);
+      --radius-card: 16px;
     }
 
     [data-theme="dark"] {
       --bg-page: #0b1120;
       --bg-card: #1e293b;
+      --bg-card-subtle: #151e2e;
       --border-color: #334155;
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
       --accent-blue: #38bdf8;
-      --accent-light: #0369a1;
+      --accent-blue-bg: #0c4a6e;
       --accent-emerald: #34d399;
       --accent-emerald-bg: #064e3b;
       --accent-amber: #fbbf24;
       --accent-amber-bg: #78350f;
       --accent-red: #f87171;
       --accent-red-bg: #7f1d1d;
-      --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.3);
+      --accent-purple: #c084fc;
+      --accent-purple-bg: #581c87;
+      --accent-indigo: #818cf8;
+      --accent-indigo-bg: #312e81;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.2);
+      --shadow-md: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
@@ -64,22 +79,24 @@
       background-color: var(--bg-page);
       color: var(--text-main);
       line-height: 1.6;
-      padding-bottom: 60px;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      padding-bottom: 80px;
+      transition: background-color 0.25s ease, color 0.25s ease;
+      -webkit-font-smoothing: antialiased;
     }
 
     header {
       background-color: var(--bg-card);
       border-bottom: 1px solid var(--border-color);
-      padding: 16px 28px;
+      padding: 14px 20px;
       position: sticky;
       top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+      z-index: 200;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+      backdrop-filter: blur(8px);
     }
 
     .header-container {
-      max-width: 1050px;
+      max-width: 900px;
       margin: 0 auto;
       display: flex;
       align-items: center;
@@ -89,96 +106,203 @@
     .logo-area {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
     .logo-icon {
-      width: 42px;
-      height: 42px;
-      background: linear-gradient(135deg, #0284c7, #0369a1);
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, #0284c7, #2563eb);
       color: #fff;
-      border-radius: 12px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 800;
+      font-weight: 900;
       font-family: 'Outfit', sans-serif;
-      font-size: 20px;
-      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+      font-size: 18px;
+      box-shadow: 0 4px 10px rgba(2, 132, 199, 0.3);
     }
 
     .site-title {
       font-family: 'Outfit', sans-serif;
-      font-size: 20px;
-      font-weight: 700;
+      font-size: 19px;
+      font-weight: 800;
       color: var(--text-main);
+      letter-spacing: -0.3px;
     }
 
-    .btn-toggle {
-      background: var(--bg-page);
-      border: 1px solid var(--border-color);
-      color: var(--text-main);
-      padding: 8px 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 500;
+    .header-actions {
       display: flex;
       align-items: center;
       gap: 8px;
+    }
+
+    .btn-action {
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 7px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
       transition: all 0.2s;
     }
 
-    .btn-toggle:hover {
+    .btn-action:hover {
       border-color: var(--accent-blue);
     }
 
     main {
-      max-width: 1050px;
-      margin: 32px auto;
-      padding: 0 20px;
+      max-width: 900px;
+      margin: 20px auto 0 auto;
+      padding: 0 16px;
     }
 
-    .brief-meta-card {
-      background-color: var(--bg-card);
+    /* Quick Jump Navigation Bar */
+    .quick-nav-bar {
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      scrollbar-width: none;
+    }
+    .quick-nav-bar::-webkit-scrollbar {
+      display: none;
+    }
+    .quick-nav-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    .quick-nav-scroll {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .quick-nav-scroll::-webkit-scrollbar {
+      display: none;
+    }
+    .nav-pill {
+      background: var(--bg-card);
       border: 1px solid var(--border-color);
-      border-radius: 18px;
-      padding: 28px;
-      margin-bottom: 24px;
-      box-shadow: var(--shadow-card);
+      color: var(--text-main);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s;
+    }
+    .nav-pill:hover, .nav-pill:active {
+      background: var(--accent-blue-bg);
+      color: var(--accent-blue);
+      border-color: var(--accent-blue);
+    }
+
+    /* Main Meta Brief Card */
+    .brief-meta-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-card);
+      padding: 22px 20px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brief-meta-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #0284c7, #3b82f6, #6366f1);
+    }
+
+    .brief-tag-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
     }
 
     .brief-tag {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background-color: var(--accent-light);
+      background-color: var(--accent-blue-bg);
       color: var(--accent-blue);
-      padding: 5px 14px;
+      padding: 4px 12px;
       border-radius: 20px;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
-      margin-bottom: 14px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
 
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent-emerald);
+      background: var(--accent-emerald-bg);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--accent-emerald);
+      border-radius: 50%;
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+
     .brief-subject {
       font-family: 'Outfit', sans-serif;
-      font-size: 26px;
+      font-size: 22px;
       font-weight: 800;
-      line-height: 1.3;
-      margin-bottom: 16px;
+      line-height: 1.35;
+      margin-bottom: 14px;
       color: var(--text-main);
+      letter-spacing: -0.3px;
     }
 
     .meta-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
       border-top: 1px solid var(--border-color);
-      padding-top: 16px;
-      font-size: 14px;
+      padding-top: 14px;
+      font-size: 13px;
       color: var(--text-muted);
     }
 
@@ -186,10 +310,11 @@
       color: var(--text-main);
     }
 
+    /* Email Content Styling */
     .email-content-container {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 14px;
     }
 
     .section-header-card {
@@ -199,94 +324,145 @@
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 12px;
-      padding: 14px 20px;
-      margin-top: 8px;
-      box-shadow: var(--shadow-card);
+      padding: 12px 18px;
+      margin-top: 12px;
+      box-shadow: var(--shadow-sm);
+      scroll-margin-top: 80px;
     }
+
+    .section-header-card.amber { border-left: 4px solid var(--accent-amber); }
+    .section-header-card.blue { border-left: 4px solid var(--accent-blue); }
+    .section-header-card.emerald { border-left: 4px solid var(--accent-emerald); }
+    .section-header-card.purple { border-left: 4px solid var(--accent-purple); }
+    .section-header-card.indigo { border-left: 4px solid var(--accent-indigo); }
+    .section-header-card.rose { border-left: 4px solid var(--accent-red); }
 
     .section-icon {
       font-size: 22px;
+      line-height: 1;
     }
 
     .section-header-card h3 {
       font-family: 'Outfit', sans-serif;
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 700;
       color: var(--text-main);
     }
 
+    .sub-section-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin: 8px 4px 2px 4px;
+    }
+
     .breakout-alert-box {
       background: var(--accent-amber-bg);
-      border: 1px solid var(--accent-amber);
+      border: 1.5px solid var(--accent-amber);
       border-radius: 14px;
-      padding: 18px 22px;
+      padding: 16px 18px;
       display: flex;
       align-items: flex-start;
-      gap: 14px;
+      gap: 12px;
       color: var(--text-main);
       box-shadow: 0 4px 14px rgba(217, 119, 6, 0.15);
     }
 
     .alert-icon {
       font-size: 24px;
+      line-height: 1;
+    }
+
+    .alert-content {
+      flex: 1;
+    }
+
+    .alert-tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: var(--accent-amber);
+      margin-bottom: 4px;
     }
 
     .bullet-item {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 12px;
-      padding: 14px 20px;
+      padding: 12px 16px;
       display: flex;
       align-items: flex-start;
       gap: 12px;
-      box-shadow: var(--shadow-card);
-      font-size: 15px;
+      box-shadow: var(--shadow-sm);
+      font-size: 14.5px;
+      line-height: 1.55;
     }
 
     .bullet-dot {
       color: var(--accent-blue);
-      font-size: 20px;
-      line-height: 1;
+      font-size: 18px;
+      line-height: 1.3;
+    }
+
+    .bullet-text {
+      flex: 1;
+    }
+
+    .ticker-badge {
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-color);
+      color: var(--accent-blue);
+      padding: 1px 6px;
+      border-radius: 6px;
+      font-family: monospace;
+      font-size: 13px;
     }
 
     .text-paragraph {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 12px;
-      padding: 14px 20px;
-      font-size: 15px;
-      box-shadow: var(--shadow-card);
+      padding: 12px 16px;
+      font-size: 14.5px;
+      box-shadow: var(--shadow-sm);
     }
 
+    /* Table Component (Mobile Responsive with Horizontal Scroll) */
     .table-container {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 16px;
+      border-radius: 14px;
+      padding: 12px;
       overflow-x: auto;
-      box-shadow: var(--shadow-card);
+      box-shadow: var(--shadow-md);
+      -webkit-overflow-scrolling: touch;
     }
 
     .data-table {
       width: 100%;
+      min-width: 600px;
       border-collapse: collapse;
-      font-size: 14px;
+      font-size: 13.5px;
       text-align: left;
     }
 
     .data-table th {
-      background: var(--bg-page);
+      background: var(--bg-card-subtle);
       color: var(--text-muted);
       font-weight: 700;
-      padding: 12px 16px;
+      padding: 10px 14px;
       border-bottom: 2px solid var(--border-color);
       text-transform: uppercase;
-      font-size: 12px;
+      font-size: 11.5px;
       letter-spacing: 0.5px;
+      position: sticky;
+      top: 0;
     }
 
     .data-table td {
-      padding: 14px 16px;
+      padding: 12px 14px;
       border-bottom: 1px solid var(--border-color);
       color: var(--text-main);
     }
@@ -295,11 +471,15 @@
       border-bottom: none;
     }
 
+    .data-table tr:hover td {
+      background-color: var(--bg-card-subtle);
+    }
+
     .badge-change {
       font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 13px;
+      padding: 3px 8px;
+      border-radius: 16px;
+      font-size: 12.5px;
       display: inline-block;
     }
 
@@ -314,44 +494,79 @@
     }
 
     .surge-tag {
-      background: var(--accent-light);
+      background: var(--accent-blue-bg);
       color: var(--accent-blue);
       font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 8px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+      display: inline-block;
     }
 
     .link-card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 12px;
-      padding: 16px 20px;
-      box-shadow: var(--shadow-card);
+      padding: 16px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
     .link-btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
-      background: var(--accent-blue);
+      background: linear-gradient(135deg, #0284c7, #2563eb);
       color: #fff !important;
-      padding: 10px 20px;
+      padding: 12px 20px;
       border-radius: 10px;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 14.5px;
       box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
-      transition: opacity 0.2s;
+      transition: opacity 0.2s, transform 0.1s;
     }
 
     .link-btn:hover {
-      opacity: 0.9;
+      opacity: 0.95;
+      transform: translateY(-1px);
+    }
+
+    .link-url {
+      color: var(--accent-blue);
+      word-break: break-all;
+      font-size: 13px;
     }
 
     footer {
       text-align: center;
-      margin-top: 40px;
+      margin-top: 36px;
       color: var(--text-muted);
-      font-size: 13px;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    /* Mobile view tweaks */
+    @media (max-width: 600px) {
+      header {
+        padding: 12px 14px;
+      }
+      .site-title {
+        font-size: 17px;
+      }
+      .brief-subject {
+        font-size: 19px;
+      }
+      .brief-meta-card {
+        padding: 18px 14px;
+      }
+      .bullet-item, .text-paragraph {
+        padding: 10px 14px;
+        font-size: 14px;
+      }
     }
   </style>
 </head>
@@ -363,29 +578,83 @@
         <div class="logo-icon">DB</div>
         <div class="site-title">Daily Stock Briefing</div>
       </div>
-      <button class="btn-toggle" onclick="toggleTheme()">
-        <span id="theme-icon">🌙</span> <span id="theme-text">Dark Mode</span>
-      </button>
+      <div class="header-actions">
+        <button class="btn-action" onclick="toggleTheme()">
+          <span id="theme-icon">🌙</span> <span id="theme-text">Dark</span>
+        </button>
+      </div>
     </div>
   </header>
 
   <main>
     <div class="brief-meta-card">
-      <div class="brief-tag">⚡ Automated 7:00 AM Email Report</div>
-      <h1 class="brief-subject">Your weekly Dose of Derivatives 📈</h1>
+      <div class="brief-tag-row">
+        <div class="brief-tag">⚡ Automated 7:00 AM Stock Report</div>
+        <div class="live-badge"><span class="live-dot"></span> Latest Report</div>
+      </div>
+      <h1 class="brief-subject">Daily Stock Report: Gap-Up Opening Setup, High Volume Surges & Corporate Updates</h1>
       <div class="meta-grid">
-        <div class="meta-item"><strong>From:</strong> HDFC securities <noreply@campaign.hdfcsec.com></div>
-        <div class="meta-item"><strong>Received:</strong> Sat, 29 Aug 2026 09:09:20 +0000 (UTC)</div>
-        <div class="meta-item"><strong>Page Updated:</strong> August 29, 2026 - 10:20 AM IST</div>
+        <div class="meta-item"><strong>From:</strong> Digant Joshi <digant73@gmail.com></div>
+        <div class="meta-item"><strong>Date:</strong> Friday, August 29, 2026 at 7:00 AM IST</div>
+        <div class="meta-item"><strong>Updated:</strong> August 29, 2026 - 06:33 PM IST</div>
       </div>
     </div>
 
     <div class="email-content-container">
-      <!DOCTYPE html> <!doctype html=""> <html> <head>  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />  <title></title> </head> <body><img alt="" src="https://tracking.campaign.hdfcsec.com/tracking/1/open/MN9gYDEroraC4xU0zmnoxHorVcRSBK-s0Fz7lmVmZ-416Rm4BEX07hvL8v1zGzy64_pJiqmgmT2CDnY_qESwxIGio7EiXbfpg91SSIM6KHfKSMmIGCdTi-LzLvNSiETUjFlRECF47bqawjXrdK-bnNCse29kSC8FEQs9_XID7YwNoX2LbL3W6vUIKmSdfoaelzF64a6lgINqEbyn7dlFm-Z3hbGZCoE7BSUVLQ1a3F9u1O1aAdZtoz5CxV99WqQsGmg_TQ-HDA-cfpa6PSvkPkYEXNmTu9HYAixArrRG0E0d_aPum8uG3a4-Sk6Eym-iOr6XG6kyoEgp9ik-h_sx00lakh-cbt-5rwkWoZBDnwy-xnBmvYFH3wiRpNZ33ept" width="1" height="1"><span class="preheader" style="color:blue; display:none !important;height:0; opacity:0; visibility:hidden; width:0">Unlock latest trading strategies</span><!----Start Header logo------> <table align="center" border="0" cellpadding="0" cellspacing="0" style="border: solid 1px #CCC;background-color:#fff;" width="600">  <tbody>   <tr>    <td>    <table align="center" border="0" cellpadding="0" cellspacing="0" width="600">     <tbody>      <tr>       <td align="left" valign="top">       <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;" width="100%">        <tbody>        </tbody>       </table>       </td>      </tr>     </tbody>    </table>    </td>   </tr>   <!----End Header logo------>   <tr>    <td align="center"><img alt="FnO Chronicles #DeepDiveIntoF&O 29 August'26" src="https://d3eqyohhnb5anr.cloudfront.net/1669375616/assets/ba433b6134f74d15a725064e100cfb08.jpg" style="display:block;" /></td>   </tr>   <tr>    <td align="center"><img alt="Market Snapshot" src="https://d3eqyohhnb5anr.cloudfront.net/1669375616/assets/c9769fa7f4cb4805b9cbc8fbc13bd423.jpg" style="display:block;" /></td>   </tr>   <tr>    <td align="center"><img alt="Market Snapshot" src="https://d3eqyohhnb5anr.cloudfront.net/1669375616/assets/b45fe957ebdf4c409c944750eda9a0cd.jpg" style="display:block;" /></td>   </tr>   <tr>    <td align="center"><img alt="Institutional investor activity" src="https://d3eqyohhnb5anr.cloudfront.net/1669375616/assets/a9e9734588044b97bc29496622d21d81.jpg" style="display:block;" /></td>   </tr>   <tr>    <td align="center"><img alt="Index Analysis" src="https://d3eqyohhnb5anr.cloudfront.net/1669375616/assets/2608baf230d4467a9a010b2174029967.jpg" style="display:block;" /></td>   </tr>   <tr>    <td align="center"><img alt="Gainers and Losers last week" src="https://d3eqyohhnb5anr.cloudfront.net/1669375616/assets/0096820c6e8742f8b31a4b45805241de.jpg" style="display:block;" /></td>   </tr>   <tr>    <td>    <table align="center" border="0" cellpadding="0" cellspacing="0" width="600">     <tbody>      <tr>       <td align="center" style="background:#f5f5f5;padding:10px 0% 10px 0%;border-top:1px solid #dadada;">       <table width="600">        <tbody>         <tr>          <td style="padding:0px 0px 0px 20px;" width="243">          <table align="left">           <tbody>            <tr>             <td style="text-align:center">             <table align="center">              <tbody>               <tr>                <td align="center" style="font-family:Helvetica;color:#333333;font-size: 20px;padding:0px 5px 0px 0px;">                <a href="https://tracking.campaign.hdfcsec.com/tracking/1/click/A8-B_l2ettDS8ofdOLY3SD3dVq8_dDj4nbuURRnnjK2mRjv2N33rXxuxESeqRH3QTv9-P4dFXhZkWVqUXtd039kwAT5t8S8HTHuqz1CYz2e1yGZqLsShBm8eG7DJV-UTzZrzLoxXS70YwcfIXRV5RPbSTC04tIZk_0DyUTi_-Wyw4cO6-VXlRdJfggk8-WlwTxZR7dqeaPMhkOJF7psO_GQRTtTIfMFqce4VNKS7dlgGSWqLSvTFlCO0lo0QaP4SiIOGwbOEpAS2k6PK2BOiuJEoL3fwsA6bfVQ00c-ntGPljzOyyyPnow40h1gs3rprwT1-kBHsRDP5D4qdgG1hWuVxLhLqNbNLj73D0GFAQuH1RKWCfBV5tRlTezEL37ClN2TIGUhnCW4Fc4vUpTjxsDZQo6OXE-d__WtHXnvc3L9RVu7vdOh5dmSued3Gv25wfXjeEm55Dh5StIJF1yhWe0Nad8o-0Nc7B53vRsGR1Ak9XG4mXQ-H3dOQnXfHxKFyuYJ6WWsp2uoZ-AKUMpztfBN31gVr9FcpOS45UCnRzertLz4WunkJqTBwOiDobRDPNJKwfcB1f1ReRRjDemqSgNoraKnkDH-LlQB2IaBcYnU_k7YBui0nr2FcQW1IlIJYGguEdUjf8saKZs6aYNXbdUSknfX0nmAYNG00Y0Pl_SBvALV36mvVDg1O_1OYew6dVqj4qkYaxZonBFmg6lMv8U-CWLCq4khs9AyuttsAr4TPQC-NCKpvl8k3ZIwtEeDu" data-link-index="1" style="text-decoration:none;outline:none" target="_blank" title="Facebook"><img alt="Facebook" class="CToWUd" src="https://www.hdfcsec.com/hsl.images/fb-202205041331527505605.png" style="display: inline;width: 30px;text-align: center;height: 30px;outline: none;font-size: 8px;color: rgb(179, 178, 178);" /></a>                </td>                <td align="center" style="font-family: Helvetica; color: #333333; font-size: 20px; padding: 0px 5px 0px 0px;">                <a href="https://tracking.campaign.hdfcsec.com/tracking/1/click/w_QQATx9CKa-pKzL6FBCjXlwycAgRDuSHPle_gNR-RokX0slyv1NOhGl6tCNMQQlnjfVFndPpi0Ucv0lUWgsjHhMEavKlDMKd5PUGQznCzKyP2wuSoYNoJKj-g6iJFGwK-ts4TBHljcLZqRe39y-2nOY28XQJdCQFNnVDR7qTI8Pd_3XU7-DXJ6463Ne93UCoQgbgo-lwrCdMXHyCMzDwTqBOnA-HbdbhM9K5kDvIZneBjM6IBJZRvC0rdNThRlN6WolKLyXE7ntMkBS8lB7jStXDTGdB8dyyX6PDeYxsFBsOMJFlHtc3_rc9mGtzPGsPQULvKF1UNHN6B0hwrdL6Kx_RzAtJ4G3SfNsBx9_H9qu7gWbjeo069yfaRifquOFKr0ymg1YMoR4GbSz2Ob56rBbqeLPsGVlZ1g7MqtvFTvknp6WOu-t6TAPJ3dbRZhp7tkS_V82odF2mf-RD7njdJHgUzo3RKb1BkJXpPls0-FK_JfQLVDiErAw3tYiFgZ4OZTHYflvJLA-PI3JlTuWQ36YhclrvolmOCq0Gb0fl5abv-QSbPwKhDx0RRgb7HGde05Fy0QLYnKPn7REG_nLCqnzzy4hc1zgXSibR5mxUZ90RzAAvTdSuXR6tnXc6Veq3lzJ3jYF_H995C1xR0ZPYjTlYvkWSUHdJUxDPN7t-y5Ik60PNLhz8-4dKtqN8yuu2tv0QPpxLrrMO_-PbKqDwqminzcVnGWNeJ6igr-oj4v1OdKpo-HXSh9jWOiLew7-eEyYfbZDyer9zdJtUDWSwA==" data-link-index="2" style="text-decoration: none; outline: none;" target="_blank" title="YouTube"><img alt="YouTube" class="CToWUd" src="https://www.hdfcsec.com/hsl.images/youtube-202205041333525946413.png" style="display: inline;width: 30px;text-align: center;height: 30px;outline: none;font-size: 8px;color: rgb(179, 178, 178);" /></a>                </td>                <td align="center" style="font-family: Helvetica; color: #333333; font-size: 20px; padding: 0px 5px 0px 0px;">                <a href="https://tracking.campaign.hdfcsec.com/tracking/1/click/YVPPDZxXt6vQht3KlweV5VS5tJvROYwpejPn36JoSJf3IjS_ZiWlZT1q3CL6kKSMFKviSqTXn4I1_5Bt9SFKXNUCjlobfGkcvAkG_0vOQGl0VFk69tzcRJsVusoXNoZbxq7xuojJXDpBhtlZR6jfsJI_mA7XY8t8wLua0CwbdgtWJYhL4mOyoKE5g-D6Lvms89WAs_n6NapnfEhwTm2LQDfm8PfwM52weYG4YFqnBNlL3Bcah1yh0j4FGbzNkLXeB6lfVTXogNfBia95SV3rNb3E7au1xENtuDpAEntwSRUXJBOsOpwsCZofD215-wKN36vB4ZCeNscBcW9ff7h-a2sPcpdS3BNGESj2Qrc2gilA_B6Hw6b1idYF-ya7MrbFFcOJ93U00-IbSrEqf8iXvmdiFu-zhfwGw3UK6J1RVGfhVAEpHE8EOEIDKNQiVC-3v12H2IAEEDjoYu91CJpc1JwNz7LG3QYu3sBPwgsRyFT0sqpbYXnzIeee6UTaH1aW8c-TV0E1dJYRa6EwXjEwwQpNbnosQGMRDdDJnpRJQorFNxQkXHq41zmfWBLJqgrXT6-36V4X49fo8v_-CM3hXuKUkCA4lh_lLdqSTH2n5t-aFG2m_EjGZ_n5oIAJjjzBmAI5-gI0gdVjy1sYHE0sFVe2ePUntzuuiTFf1lC4UQ9br84JB1WXI_xL1OBwzMAHG6r6deblnsREe719iouaeRi1CPRttNj_rEgR3q3K7Q8frt1wqw3960HTQJY9vfxX" data-link-index="3" style="text-decoration: none; outline: none;" target="_blank" title="Twitter"><img alt="Twitter" class="CToWUd" src="https://www.hdfcsec.com/hsl.images/twitter_new_logo-202310061120117990869.png" style="display: inline;width: 30px;text-align: center;height: 30px;outline: none;font-size: 8px;color: rgb(179, 178, 178);" /></a>                </td>                <td align="center" style="font-family: Helvetica; color: #333333; font-size: 20px; padding: 0px 5px 0px 0px;">                <a href="https://tracking.campaign.hdfcsec.com/tracking/1/click/i0AUU3t4wqr8LOTlL7Hrl6BuKrTGwLgi9BNwdOdzhsvifmFF0KLVw-DFoZ1Zt-E6wCMI0wWEQNu_wrQCjEFHQ6MgvIi7JJ8cRH9BSayP3Omskpcaw39Sx3j1F2eVge3xXC5Jvcq1QIWvHD46tcSFestMc_7t-jLSRwkGGLgV1MUDoon7JX3vP7uoU_-4PvLKwMhCmYeaxVQPIZUUEeRXpmbjnHdpaRE2RqT0BlGgJqwx7DiRCxIzq1LKwxZ4bwZmZzNj-FcYzfFdGhNzqpuRCHc5XCAGBGkCTgZ6e0yKoqpAVwZIxPT3V0fzyggBw0zWeDrMG6_U4Qk2e9h3GlJ99GjGPrYXU0HIcS4-FdqHa6DqrmX0woW-ULDAdMwWzlYgPhp2KarhYM8kBS29g5mcXHm_gDbBilf0Rqlp3Lz4dEV3hyO_af28sgeaxHAI64z7m7oEEV2XF1JOI7kwLcHN8GimAc8FDNSA3YryQtOQ6rDQN260p_5l8VOVbpOZdYl6pe0FVdFjNMymHe2qPkTa_mO9qRtdUnto-YobX6CjY8ysFhv6zOVbBaH9VdYha0MwG-b4n2HK6mmCc1uPX7cnpXnsfH6OPFaj32RYR8CINQCh7hrNs98I3VYiyCFCjd1dJ259SBCqCWrsYl9qYHiEOjZtOl-w8ch2ND-xDF1CmP0pGXEFMmu4cDo45hY5B95ghsZ5kqU1e7DNy0TuH_qnVO6jcdSEVJ0JYrrz7Nthw4C6sfqRo_nQno3xLP3B5APZ" data-link-index="4" style="text-decoration: none; outline: none;" target="_blank" title="Instagram"><img alt="Instagram" class="CToWUd" src="https://www.hdfcsec.com/hsl.images/insta-202205041332338475962.png" style="display: inline;width: 30px;text-align: center;height: 30px;outline: none;font-size: 8px;color: rgb(179, 178, 178);" /></a>                </td>                <td align="center" style="font-family: Helvetica; color: #333333; font-size: 20px; padding: 0px 5px 0px 0px;">                <a href="https://tracking.campaign.hdfcsec.com/tracking/1/click/hYXVK7AvLzOJo2mxp9DzgmtWnkrfGes0dBJhSiOzEuGsYH_0Ip7mv6QP8uybkyl4nx2P_iDmVb5JXEFjsvQQ1c9f-PL3nPSA9eX95JZfgNbAU3xSLT7YtzQxrK_lAh0vN4fj655qEc2Ojh8mbMEDyY0C2LBtrUwh65J48925NYqiX58Bk1nwgnz7mmXdJCLToG-fhU4zWghfG5H_jKvWbxvCIkB3BCBuwB4zmwBqmk_v-GNsr2p4pwfJbsM-iOpsUsfkJRQZxOGgDkIXqsA8wWHZS0-3JvoNP8L4Yh2ERX1P5yuFUfco-vRyaUlJlEJKXo-ghIGvkUDS8NDFF9moM3JRc2gOlNLM9QAZnjNy33CPkMm7PmBejg4xM3xNDYMLOqtKkPZJJ_X1szkhYmj-dz2ppF6jfg4m6ocA_alMMO1SxKuuyQfmo_J3ckX9srdNVG0KidbJzdLeejaybIOO0eGSAGTJmtc9dnwpfNGXDMgpaiIVMIZppi4MNiAjFsATOFfqqaz71WEXVC2RFGGpYOU7RoQPGFiHRyQeZ7Pe1jFfF9_9CgbtSXu2SJqgmfDIuyXm54cfzi9oW6zhQatxiTmi0geiWFiWfWWfHblN7ucwsVc3PtCLL7vUDWNuSmcYChFt4YanweUmVvRLODp8uh-JzPZfNvp3QIZRHVJ20kM4tNP3m0ZvZgwPzkEX7J2mjK_DavEgHxOOVQnmbiQQUdROD3ATmaCWIK1iKyPS8ZFH-OawOAJI_PnX9bLnUINT07plt0rRvHvqxywAfvAD_A==" data-link-index="5" style="text-decoration: none; outline: none;" target="_blank" title="LinkedIn"><img alt="LinkedIn" class="CToWUd" src="https://www.hdfcsec.com/hsl.images/linkedin-202205041332528022374.png" style="display: inline;width: 30px;text-align: center;height: 30px;outline: none;font-size: 8px;color: rgb(179, 178, 178);" /></a>                </td>                <td align="center" style="font-family: Helvetica; color: #333333; font-size: 20px; padding: 0px 5px 0px 0px;">                <a href="https://tracking.campaign.hdfcsec.com/tracking/1/click/JlsB1psim9xu2-6t_HbmwpPxkDZjk_nMO-c6aGNEymGzXLu2huAV6rs0E-Bm4rtDWaum2mC8iJZXF70aEjShXEInl4huZ6EAzoElCtmR8M-pwJlTROvWTPpO5PfTwa55vfnZ1V7mNnQm5XiwO1WSzxEHgkMN26-h_rfNmfFeChMLuz55lDF3fuUBnfqhUHNb8E2C9R87bj90QIaGxTehJDku6YtXHDKwfVg5jcw1bBD84Y3CYwb4tGEwRXBITwRvLJqzXVl3b1AAdxDI_14EQfb4ZHRRqdbbzELVxh99P2vYGRCFgYy7Tvm5LG6lV-UUDoHNPqycw3pIou1Uk7q8FqCTruJI5U8k9Tng2ayDczOjqKMf62vjEdG4rNINNqCKCehe5RH2u20Ac4Ufde3o8mAnKLvhu3VcOIdkjQma1gLFlzLP7OXiUXU9vnSzLpQ0X0xeA9FChMyV3Y326U3JgaVCvfoi_GzeEeGzm54ESQz9JEjRysSaOFiyJvLtwzdaKRrV5dZHI9mcTQV-KqWjMKjhS6ot8E0AWUEq7XMkfjV212Fju0gpdvX7BdAqh_vDjPXaBEKDLxpKStpanl_1jcUlRAWYvm9VA6uDOZSR-8hg6wGNI119RAE0303ihEeYu6YAJdSe8tZpK3u2Sm3G_RymrEO8TWuwB5Q6Of4NaLzH-ArqJMIqfwif-pPMmLrBccRA289KgjUqgIZ1qmfl70UYeVxHmdGWLaJz0el_Xab5qThU16vMQQGw6QlcpqpnpRx6AmqzGHEjLh0aOBAUfw==" data-link-index="6" style="text-decoration: none; outline: none;" target="_blank" title="Telegram"><img alt="Telegram" class="CToWUd" src="https://www.hdfcsec.com/hsl.images/telegramicon37-202212051708201119767.png" style="display: inline;width: 30px;text-align: center;height: 30px;outline: none;font-size: 8px;color: rgb(179, 178, 178);" /></a>                </td>                <td align="center" style="font-family: Helvetica; color: #333333; font-size: 20px; padding: 0px 5px 0px 0px;">                <a href="https://tracking.campaign.hdfcsec.com/tracking/1/click/X-ndWqF9xkM3Pe8TMTZ8UCfDvSnHnbdZS-MUPuAc-EgAnsXMo0IbtVv9_RdHw0na3l0SPGEvwxlK75YqtWl0KhNnVloChm_8a1nHcduChTdPQpTvulaSnDmFcUqOXDU1CDPZa1qwg819Q2ZpXKnR1M1c_BuiCzQtPImxPQdWwIbSE2CaAJ73NBzDiCTFN8R3QDZS_fyVWSzrarKSufe0ix0frImV-ydmkW30oQtsooKmamAZPVK2Yy3cA90iaS98zbq5TKSeQMq0A4QRyYpJWxsjtrVW6s4atw8UoDADbpcw9UfAPLsjG0vGKV2UjQMU7zXeu8H1AZpIcgstZiQsWAP4nja-ibhH-WHmglrcW5Eq438qfoPrupvo7htsxG6oIL9wqmMZ59sYM1uc63uvK9O03cjagNuQefBeEu2TZZXbgpvQeiZPhBHWqko-FRZy6ZuUUiZ5djK7uMD14A3isaemTZRtQpghUz4wzj5FXgE3nikEqla2HupfuH0dyCLFIanJg5R_-WfsxJzJNpVIgEC18L3q9uEu22om_ZNc8JAgnqN3QojBZClbKG6vjln3YsXe8vskSgcusyMZ4xKlwm60GV3v5mbQyxeueRCiSp3n5G856CePf0hYt_JcYbsGGJgKdRUhXiV6YfD1rM2PrRmvSo0b7KEP5x_QOJLb7zCMv8dA6Ma1Qntj8I_IEGFJOVWWrkzgm1NKc9abTtVk04SUq-HpGCKJYatc_B5AB0fpj2xCOh0Qw7S6P4tsorOputjRL8a2NO7S0wG1MV5MPg==" data-link-index="7" style="text-decoration: none; outline: none;" target="_blank" title="WhatsApp"><img alt="WhatsApp" class="CToWUd" src="https://www.hdfcsec.com/hsl.images/WhatsApp-202205041333304788560.png" style="display: inline;width: 30px;text-align: center;height: 30px;outline: none;font-size: 8px;color: rgb(179, 178, 178);" /></a>                </td>               </tr>              </tbody>             </table>             </td>            </tr>            <tr>             <td align="center" style="font-family: 'Roboto', sans-serif;color: #969393;font-size: 13px;/* line-height:20px; */">Social Connect</td>            </tr>           </tbody>          </table>          </td>          <td style="padding: 0px 20px 0px 0px;" width="163">          <table align="right">           <tbody>            <tr>             <td style="text-align:center">             <table align="center">              <tbody>               <tr>                <td align="center" style="font-family:Helvetica;color:#333333;font-size:20px;padding: 0px 10px 0px 0px;">                <a href="https://tracking.campaign.hdfcsec.com/tracking/1/click/elowU11JCRr0dPlO2DX8up7011lJEhkg0GL4WrEJKdu05n3-WhKZt7Wnkd7jhg9650ofnThLoF9i1NrW9OwUigisL80ijUffX5Mp1fpeB334wJlXC-zrx3BGN-UosMGJMQfnCiFFI_rwxurM4G1SpxwS8esWHEIYe4_XP7GnK9E2qmEYQMXlv2x1sMoSHuc4wzi2jtL5tyAznBEjIjYfbzfomciOFC5enPrXUXDTPfQzyAAzpp14QXW3rM4P0sRNAgOitZKDYGFe4nbxm5bM2Fqp4mwM8x277lnYq_WdpI6tqa2Pu4pMSYyQ6JbQKvxT4ZdkpIvdEZ9xXJlJcqEa2RpTSwJAm2BBL1cj81-xeIl2BHcUuHRPv782x89zc1A9YMZ0rBLoAJ82JTAL5rWNY4_MOFFHliIycoScAJCBQByd1Zf3DdgvD-0cDVDzoJAjlLzuOI_FS2P9wZSX4x6zgdid1mNxDnlFxXkzkp5ecA-kSzJvLoEQ5XTw7uvBrGog3aCTOSlGPohd9vmYsEdEiFLDj0JwCvrm2HfISxUq-9lKuEoPorz-ftXJdK1H0MyxICAg6qLaZAVbZv0nkYBdojkhof87JgXIZY6259vwSoAHw7XGuAgtvSHrpPeWNvpH_emun9GLmG-3QD7R054cl0i4dA_8hFnw2Xj_Bd6qkv-ldIoJL2m7g3EK9g0rvYUqsoclhcE9MszOqkLPJ-OvapeNz5Sspj0V8V-coYzsmbvO3sB-pbVskdpUMz1ePYkK" data-link-index="8" style="text-decoration:none;outline:none" target="_blank" title="Download"><img alt="iOS" class="CToWUd" src="https://www.hdfcsec.com/hsl.images/download_ios_app-202205041331309206909.png" style="display: inline;width: 27px;text-align: center;height: 27px;outline: none;font-size: 8px;color: rgb(179, 178, 178);" /></a>                </td>                <td align="center" style="font-family:Helvetica;color:#333333;font-size:20px;padding:0px 5px 0px 0px">                <a href="https://tracking.campaign.hdfcsec.com/tracking/1/click/elowU11JCRr0dPlO2DX8up7011lJEhkg0GL4WrEJKdu05n3-WhKZt7Wnkd7jhg9650ofnThLoF9i1NrW9OwUigisL80ijUffX5Mp1fpeB334wJlXC-zrx3BGN-UosMGJMQfnCiFFI_rwxurM4G1SpxwS8esWHEIYe4_XP7GnK9E2qmEYQMXlv2x1sMoSHuc4wzi2jtL5tyAznBEjIjYfb3Zs6rdvhaJOBoMRMPDyiLdrlmq2mLGsSU1HVyxanqhzh3yQTyAEGgC7B3e5rK-id-uCXLtsFg2f09GPtKHzUMQY8PNHWIm-ghB_kG3frvudVaDDR4jzfh6V1SAcnhrQiEtlKX7exSnpb3dV3Rnxpi9LMJ09Voo09F4eglllHrjc9PVYNrUMWw035h2iuawNzStmefdMmnWjkfkfT49kPTelPQV-V4HY09oPYHlXSK93GnJPZLHGknXsVRmvr3f_Aq_xCxD67bsyHuvU7C3sT0_GXlPy6O7iFPQ2XrmBnaruRsWnp6WGcVeCWq8i8RyCDZobmI6-8UuPGvOAf0FzR__uyIiYa6KTF81Wxzr5W6PrqFBmqxBbLjTSFTtHfN3IVsQrcxx3ylYDFSERgR4WTpiWllnMKkHWlumUEbr38LPcywAmhEP8IoIjLVGdXrNgvAlPIT2RqoYvvp8wg2jQaVuvZk2fpCHeIspa0kKKkbJoIJwiqHeGDOuakFms2VSRMp14RojtKJn_HNCy7j2QFu4M1OrCpD0rJIPGstvPP9dt" data-link-index="9" style="text-decoration:none;outline:none" target="_blank" title="Download"><img alt="Android" class="CToWUd" src="https://www.hdfcsec.com/hsl.images/download_android_app-202205041326292771055.png" style="display: inline;width: 21px;text-align: center;height: 25px;outline: none;font-size: 8px;color: rgb(179, 178, 178);" /></a>                </td>               </tr>              </tbody>             </table>             </td>            </tr>            <tr>             <td align="center" style="font-family: Roboto, sans-serif; color:#969393; font-size:13px; line-height:20px;">Download</td>            </tr>           </tbody>          </table>          </td>         </tr>        </tbody>       </table>       </td>      </tr>     </tbody>    </table>    </td>   </tr>   <tr>    <td align="center" bgcolor="#FFFFFF" style="font-family: 'Roboto', sans-serif;font-size:12px;line-height:20px;color: #81878c;font-size: 14px;line-height:33px;font-style:italic;">    <a href="https://tracking.campaign.hdfcsec.com/tracking/1/click/aHjy2ToQkEke389XXwaQiPSckQ5PbJyv_6ChNBfea5yIOby724wqmTGfPgEM-qkKEHvy0cVduQoAGAAp9JOqIbNFzXa4QP9Hqz517LMNm3j53slztXPwQjmy0li6yriDdLubJBXNuNm1CLW6ikBxb2ujCE_uR3SvLXRIByfpcajfVarTrPd8wZExsFDPayf1mFBgNwCkvVXHE6n3-p7OOqiRRW4X4KxoUKyvE4y8JtUtBjMr1PPN4rU0D0G8q2NK-gYuQyKFOLcWLqy8Jqazq5vTE1knawuaZOLcZ-uxyRpiKEr7XyZx54uqB-hWUccDpWLV9_h7ccp9LKOQXzame6eoMu8MQiH5F5B9HabZdSe63qLlpENZ-w_7rPfUMm7Y4mWxMrMvyYuDGCydT1_9KFm643_AdBRJiSDglRyGkbKHW-g4QKQsCBzCA1QflclF4jc8IHteDSpFLXBfcCEATTARjzS64dLXH0zNIa35FHy18aquByMq2-LC0Uc8lVTbP-LShB71eyQVljeSGN1pcNs6-iyjsm8t0akSOOmqEyk0gIooMxUmddN2XmsGVsN6QVR4IQhXGGMTZ7Tv6cy8QXseJM4jXHMk0g6rGrBYZ3NR1u7iSPLoni-l-MIh9aLbITqClxGlyUQGDgP8Ez8bGrPDTfvFW_2pwM75EsoQWdAeCP0p7F1xEC_XTrADyeiCFEgDc9DXvWdXmFyjbWhG8cEAnK6Ee9W0uRYhgtiFBKqnzX3TZXrCMW373FjoYknO" data-link-index="10" style="color: #81878c;" target="_blank">Disclaimer</a>    </td>   </tr>   <tr>    <td align="center" bgcolor="#FFFFFF" style="font-family: 'Roboto', sans-serif;font-size: 9px;line-height:12px;font-weight:normal;color: #81878c;padding: 0px 10px 14px;" valign="middle">Data source: Bloomberg & HDFC Securities Retail Research. Investment in securities market are subject to market risks, read all the related documents carefully before investing. The information is only for consumption by the client and such material should not be redistributed. The securities quoted are exemplary and are not recommended. This information is for educational/information purpose. Disclaimer & SEBI Registration Details:     <a href="https://tracking.campaign.hdfcsec.com/tracking/1/click/YuKVtPclVmfVFhHOrDMWhCSCufNZYid-Gkxf1sS7oAZNjd_M5sqIwUHtG3auRU5ci_-Eg6PndG_yddBZkzlYAQsFKxITH9kB2MwbdQNI7cVlJXCuULNU9FHnsCoVU7tAYdPKSyFtmhdo2tG6Kkznw9OJGTdWH4eU2apHRO9MdIjOdWkwUxzwUIM7RKOjtcNlxaqhBs29HtKF2l9i9W6C0B428quaHBsgZ1tRb1RQlEd5ODvqwFX4dNmG9MOrFyN4Ge6le7sRku0EdAootAK7Gc6DkR3Y5EBmZbdMW_0lwTpvClxth9k3t7VkD-riz4D-1DZsMbS4XA1AcUv5gCb8x89bLHMCzHkwxJYZCXOEZgnOgcfbFpvrVMUJ-wKUQ_eTiP83WwzjHz31gydJiLeaWhgflWjQ9pgi7wLvO_spQDg7ulqJ7YTfsCwtxsB8UCoxtbIH9W_aMjAuTJZcJFEf4_691QUg_XddHkdsWrkxBNyuSL7KAr7tWO90Cl9_G0Umjr8df7aGNESJeCrugiUyBmEO2WQ7kJ_ndmulvriBe34gvYcAhWVPPT6NB80SH1lXW4M4O-zpGauz2k7YeV58iJPFAc3fVTMN4KO_xpvp33D5IGaPMe5uRKPwiZrVyyEqQnFRvcFLL-7Kp2F94vuIXd3Vf_oKXiinJVKqXhRaXuUex6uMVDm6EIwF0wjPMEWL34Q_GGzIbJJUxOaIay4zwYfGF5K1ViqHab5s4aJiT_xmEs08Lgbzh0NQoz1QN0nb" data-link-index="11" target="_blank">https://www.hdfcsec.com/article/disclaimer-1795</a>    </td>   </tr>  </tbody> </table>  <p style="text-align:center; font-size:11px;"> <a href="https://tracking.campaign.hdfcsec.com/tracking/1/click/7SBKzR4ZnpNqpRSBvIK19KJMn8tcVdbr-Bj_bvh3QqpZMRm0R6cwMRNNjNFcdbJb1JQtfbCb8nTHpbmYMQ73QkmR2KPS3qq-Y7cOvFSqPEjb9Y6Ge2UhDkqiM3gr06e_41CmiYBM-SJ_FFqEghGCvUxxirpaTA9GzfhXHs8f2Zerh4v3Zp0GfUl7NsCoZIekaw0HuA892lcWdH5i4a2gXSS_vupppWaBFTi8R6tXixuNTrdVnH9qcvK-rbIQToCB_XHypwZC9PJEUJv3N_P2Kk8H1I7k-U9v8NcamA6ZG1UCsW5pFu7-jpAS4cc0LUjKVhuaoCmJPZfJMVCIapS-PFfhXvPahG37ajSTcJpnt5cH18IfQnDCaPTeNhDYRsfotdaqSEYMhPAjrbBHJ9SkOGEwCpYMm9q-05vf4Q6gpuA2EZK5diG8P58pmd9KzwLayNundi0IGMpMKSoHYJcH4FFg9XxKaGNnzYeUfZQ3U-W6c8gNBUk7l_R3DNIiBv_wNNA4STLSkrDcz-j5bFvUwgKXiy2vNjQEAM9gXT5ZYoG7SCrFLTbv2iu_cGLI9RpC6t0ikA_ucm6L6f_Cx_rZyp-OT2FGDVnokB_VfL5-DIe2lKS0sx1CSHr55JtYCorQ-PqQ7pMzPxd0ua_OyVYHRkmO-usvi5HhOAkSRmxlbBxvY-kAmFYQzMtgjRstXGJr3ZGNeTrQphf_3GvxTNx9G6WM3SehLdu55RuHGnbrTrI-vxaP9fAWbh-DdQCpVdzepyUlSCqq3iHu1-LKLIblpw==" data-link-index="12">UNSUBSCRIBE</a> </p> </body> </html> </!doctype><img  alt="" border="0" height="1" width="1" src="https://in1.wizrocketmail.net/r?e=K2wIfR8FBn96Y2R9DSZjewYAAgxjayw1KS0sNUwCAQRjamU3FxohLkFDWFs5BTEkODE7LnJwTQUrPyQuOS4uBV1EWFI%2BOTM%2FPjU8a2RZVEMyPi4wdS0oOVlvWFB1YHB6YGJlcgsDBAxuBWB7ZWxicwAJExh1LSg5PAUiIkRfRRZteCUxJTENL1dWUEE7LnA2&c=722176992"></img>
+      <div class="quick-nav-bar"><div class="quick-nav-label">Quick Jump:</div><div class="quick-nav-scroll"><a href="#sec-52w" class="nav-pill">🎯 52W High/Low</a><a href="#sec-market" class="nav-pill">📊 Market Setup</a><a href="#sec-breakout" class="nav-pill">🚨 Breakouts</a><a href="#sec-circuit" class="nav-pill">⚡ Circuits</a><a href="#sec-volume" class="nav-pill">🔥 Volume Surges</a><a href="#sec-crossover" class="nav-pill">📈 MA Crossover</a><a href="#sec-corporate" class="nav-pill">📢 Corporate News</a><a href="#sec-calendar" class="nav-pill">📅 Calendar</a></div></div>
+<p class="text-paragraph">Hi Digant,</p>
+<p class="text-paragraph">Here is your morning stock list report, 52-week high/low check, market opening setup, circuit status, volume surge table, level breach alerts, and corporate calendar update for Friday, August 29, 2026:</p>
+<div id="sec-52w" class="section-header-card indigo"><span class="section-icon">🎯</span><h3>52-Week High & Low Highlights</h3></div>
+<div class="sub-section-title">✨ Stocks At / Near 52-Week Highs:</div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">Fineotex Chemical (fcl): Current ₹49.00 vs 52W High ₹51.38 (<span class="badge-change neg">-4.6%</span>; 13.25M shares).</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">Acme Solar Holdings (acmesolar): Current ₹398.00 vs 52W High ₹411.50 (<span class="badge-change neg">-3.3%</span>).</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">Action Construction Equipment (ace): Current ₹1,155.00 vs 52W High ₹1,196.00 (<span class="badge-change neg">-3.4%</span>).</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">Sigma Advanced Systems (sigmaadv): Current ₹692.70 vs 52W High ₹721.50 (<span class="badge-change neg">-4.0%</span>).</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">HEG Ltd (<strong class="ticker-badge">HEG</strong>): Current ₹720.00 vs 52W High ₹749.00 (<span class="badge-change neg">-3.9%</span>).</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">Hindustan Aeronautics Ltd (<strong class="ticker-badge">HAL</strong>): Current ₹4,890.00 vs 52W High ₹5,149.90 (<span class="badge-change neg">-5.0%</span>).</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">Redington Ltd (redington): Current ₹351.50 vs 52W High ₹370.80 (<span class="badge-change neg">-5.2%</span>).</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">Vijaya Diagnostic (<strong class="ticker-badge">VIJAYA</strong>): Current ₹1,482.30 vs 52W High ₹1,573.00 (<span class="badge-change neg">-5.8%</span>).</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">Deccan Gold Mines (<strong class="ticker-badge">512068</strong>): Current ₹232.60 vs 52W High ₹250.65 (<span class="badge-change neg">-7.2%</span>).</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">Sadhana Nitro Chem (<strong class="ticker-badge">SADHNANIQ</strong>): Current ₹2.90 vs 52W High ₹3.32.</div></div>
+<div class="sub-section-title">✨ Stocks At / Near 52-Week Lows:</div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">Shrenik Ltd (<strong class="ticker-badge">SHRENIK</strong>): Trading at 52-WEEK LOW of ₹0.28 (fresh low of ₹0.27–0.28).</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">Indian Railway Finance Corp (<strong class="ticker-badge">IRFC</strong>): Current ₹85.43 vs 52W Low ₹85.00 (<span class="badge-change pos">+0.5%</span>).</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">HDFC Bank Ltd (<strong class="ticker-badge">HDFCBANK</strong>): Current ₹724.00 vs 52W Low ₹715.10 (<span class="badge-change pos">+1.2%</span>).</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">Filatex Fashions Ltd (<strong class="ticker-badge">FILATFASH</strong>): Current ₹0.19 vs 52W Low ₹0.14.</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">Housing Development & Infra (<strong class="ticker-badge">HDIL</strong>): Current ₹1.50 vs 52W Low ₹1.45 (<span class="badge-change pos">+3.4%</span>).</div></div>
+<div id="sec-market" class="section-header-card blue"><span class="section-icon">📊</span><h3>Major Indian Market Summary & Opening Setup</h3></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">Thursday Market Rebound: Indian benchmarks rebounded sharply during monthly F&O expiry: Sensex rose 286.98 points (<span class="badge-change pos">+0.37%</span>) to 77,656.09, and Nifty 50 gained 115.50 points (<span class="badge-change pos">+0.48%</span>) to 24,334.55.</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">Friday Opening Cues: GIFT Nifty is trading around 24,474–24,527 (+140 to +190 points premium), indicating a strong positive opening this morning on easing crude oil prices and global tech strength.</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">Key Technical Levels: Immediate support moves up to 24,250–24,300, while resistance is pegged at 24,450–24,520.</div></div>
+<div id="sec-breakout" class="section-header-card amber"><span class="section-icon">🚨</span><h3>Price Level Breach Alert</h3></div>
+<div class="breakout-alert-box"><div class="alert-icon">🚨</div><div class="alert-content"><div class="alert-tag">LEVEL BREACH / BREAKOUT</div><p>- <strong>VIJAYA</strong> (Vijaya Diagnostic Centre Ltd): <strong>NEW</strong> <strong>BREAKOUT</strong> <strong>ALERT</strong>! Current Price ₹1,<strong>482</strong>.30 has crossed above your set Up Level threshold of ₹1,<strong>425</strong>.00.</p></div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">Blue Jet Healthcare (<strong class="ticker-badge">BLUEJET</strong>): Current Price ₹592.00 sustains above your set threshold of ₹460.00.</div></div>
+<div id="sec-circuit" class="section-header-card purple"><span class="section-icon">⚡</span><h3>Upper & Lower Circuit / Momentum Check</h3></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">Borosil Ltd (<strong class="ticker-badge">BOROLTD</strong>): Heavy buying volume of 18.59M shares (+20.1x volume surge) at ₹256.40.</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">Rashtriya Chemicals & Fertilizers (<strong class="ticker-badge">RCF</strong>): Surged on 18.10M volume (+12.0x volume surge) to ₹124.22.</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">Sigachi Industries (<strong class="ticker-badge">SIGACHI</strong>): Rallied <span class="badge-change pos">+10.9%</span> to ₹33.78 on 16.06M shares (+5.51x volume surge).</div></div>
+<div id="sec-volume" class="section-header-card emerald"><span class="section-icon">🔥</span><h3>High Volume Surge Stocks (> 2x 1-Month Avg Volume)</h3></div>
+<div class="table-container"><table class="data-table"><thead><tr><th>Stock</th><th>Current Price (₹)</th><th>Change in Price (% / ₹)</th><th>Volume</th><th>Volume Surge Times</th></tr></thead><tbody><tr><td data-label="Stock"><strong>Sarda Energy & Minerals (SARDAEN)</strong></td><td data-label="Current Price (₹)">₹529.25</td><td data-label="Change in Price (% / ₹)"><span class="badge-change pos">+7.8%</span></td><td data-label="Volume">21,370,686</td><td data-label="Volume Surge Times"><span class="surge-tag">81.2x</span></td></tr><tr><td data-label="Stock"><strong>Borosil Ltd (BOROLTD)</strong></td><td data-label="Current Price (₹)">₹256.40</td><td data-label="Change in Price (% / ₹)"><span class="badge-change pos">+0.6%</span></td><td data-label="Volume">18,593,567</td><td data-label="Volume Surge Times"><span class="surge-tag">20.1x</span></td></tr><tr><td data-label="Stock"><span class="surge-tag">Fineotex Chemical (fcl)</span></td><td data-label="Current Price (₹)">₹41.80</td><td data-label="Change in Price (% / ₹)"><span class="badge-change neg">-1.4%</span></td><td data-label="Volume">5,294,086</td><td data-label="Volume Surge Times"><span class="surge-tag">14.2x</span></td></tr><tr><td data-label="Stock"><strong>RCF (RCF)</strong></td><td data-label="Current Price (₹)">₹124.22</td><td data-label="Change in Price (% / ₹)"><span class="badge-change pos">+4.5%</span></td><td data-label="Volume">18,100,384</td><td data-label="Volume Surge Times"><span class="surge-tag">12.0x</span></td></tr><tr><td data-label="Stock"><strong>Gujarat Pipavav Port (GPPL)</strong></td><td data-label="Current Price (₹)">₹151.95</td><td data-label="Change in Price (% / ₹)"><span class="badge-change pos">+2.1%</span></td><td data-label="Volume">9,224,012</td><td data-label="Volume Surge Times"><span class="surge-tag">9.45x</span></td></tr><tr><td data-label="Stock"><strong>Sigachi Industries (SIGACHI)</strong></td><td data-label="Current Price (₹)">₹33.78</td><td data-label="Change in Price (% / ₹)"><span class="badge-change pos">+10.9%</span></td><td data-label="Volume">16,061,164</td><td data-label="Volume Surge Times"><span class="surge-tag">5.51x</span></td></tr><tr><td data-label="Stock"><strong>ZF Commercial Vehicles (ZFCVINDIA)</strong></td><td data-label="Current Price (₹)">₹2,600.00</td><td data-label="Change in Price (% / ₹)"><span class="badge-change neg">-1.5%</span></td><td data-label="Volume">650,642</td><td data-label="Volume Surge Times"><span class="surge-tag">5.28x</span></td></tr><tr><td data-label="Stock"><strong>Jindal Poly Invest (JPOLYINVST)</strong></td><td data-label="Current Price (₹)">₹1,068.30</td><td data-label="Change in Price (% / ₹)"><span class="badge-change pos">+1.8%</span></td><td data-label="Volume">49,750</td><td data-label="Volume Surge Times"><span class="surge-tag">4.68x</span></td></tr><tr><td data-label="Stock"><strong>AWL Agri Business (AWL)</strong></td><td data-label="Current Price (₹)">₹200.60</td><td data-label="Change in Price (% / ₹)"><span class="badge-change pos">+3.4%</span></td><td data-label="Volume">16,360,851</td><td data-label="Volume Surge Times"><span class="surge-tag">4.53x</span></td></tr><tr><td data-label="Stock"><strong>GSFC (GSFC)</strong></td><td data-label="Current Price (₹)">₹158.82</td><td data-label="Change in Price (% / ₹)"><span class="badge-change neg">-0.3%</span></td><td data-label="Volume">3,644,998</td><td data-label="Volume Surge Times"><span class="surge-tag">4.32x</span></td></tr><tr><td data-label="Stock"><strong>NCL Industries (NCLIND)</strong></td><td data-label="Current Price (₹)">₹174.00</td><td data-label="Change in Price (% / ₹)"><span class="badge-change pos">+0.8%</span></td><td data-label="Volume">260,210</td><td data-label="Volume Surge Times"><span class="surge-tag">4.11x</span></td></tr><tr><td data-label="Stock"><strong>Jullundur Motor Agency (JMA)</strong></td><td data-label="Current Price (₹)">₹88.90</td><td data-label="Change in Price (% / ₹)"><span class="badge-change pos">+1.6%</span></td><td data-label="Volume">22,658</td><td data-label="Volume Surge Times"><span class="surge-tag">3.83x</span></td></tr><tr><td data-label="Stock"><strong>Hindustan Copper (HINDCOPPER)</strong></td><td data-label="Current Price (₹)">₹531.40</td><td data-label="Change in Price (% / ₹)"><span class="badge-change neg">-6.4%</span></td><td data-label="Volume">44,652,248</td><td data-label="Volume Surge Times"><span class="surge-tag">3.46x</span></td></tr><tr><td data-label="Stock"><strong>Edelweiss Financial (EDELWEISS)</strong></td><td data-label="Current Price (₹)">₹124.26</td><td data-label="Change in Price (% / ₹)"><span class="badge-change pos">+4.8%</span></td><td data-label="Volume">7,915,912</td><td data-label="Volume Surge Times"><span class="surge-tag">2.91x</span></td></tr><tr><td data-label="Stock"><strong>IFCI Ltd (IFCI)</strong></td><td data-label="Current Price (₹)">₹76.55</td><td data-label="Change in Price (% / ₹)"><span class="badge-change pos">+1.3%</span></td><td data-label="Volume">35,636,368</td><td data-label="Volume Surge Times"><span class="surge-tag">2.47x</span></td></tr><tr><td data-label="Stock"><strong>Tata Power (TATAPOWER)</strong></td><td data-label="Current Price (₹)">₹370.00</td><td data-label="Change in Price (% / ₹)"><span class="badge-change neg">-0.5%</span></td><td data-label="Volume">9,167,396</td><td data-label="Volume Surge Times"><span class="surge-tag">2.30x</span></td></tr><tr><td data-label="Stock"><strong>Great Eastern Shipping (GESHIP)</strong></td><td data-label="Current Price (₹)">₹1,342.00</td><td data-label="Change in Price (% / ₹)"><span class="badge-change pos">+0.1%</span></td><td data-label="Volume">2,444,622</td><td data-label="Volume Surge Times"><span class="surge-tag">2.10x</span></td></tr><tr><td data-label="Stock"><strong>Jio Financial Services (JIOFIN)</strong></td><td data-label="Current Price (₹)">₹255.50</td><td data-label="Change in Price (% / ₹)"><span class="badge-change pos">+0.7%</span></td><td data-label="Volume">43,028,580</td><td data-label="Volume Surge Times"><span class="surge-tag">2.05x</span></td></tr></tbody></table></div>
+<div id="sec-crossover" class="section-header-card blue"><span class="section-icon">📈</span><h3>Moving Average Crossover Status</h3></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">No new Golden Cross or Death Cross transitions occurred today. (Ongoing/static crossovers are omitted per your preference).</div></div>
+<div id="sec-corporate" class="section-header-card indigo"><span class="section-icon">📢</span><h3>Corporate Announcements & News</h3></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">Kuantum Papers Ltd: 29th Annual General Meeting at 11:30 AM IST.</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">NMDC Ltd: 68th AGM on September 28, 2026; Record Date Monday, October 5, 2026 for ₹1.00/share final dividend.</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">Tata Power: Commissioned 190.5 MW FDRE project in Rajasthan.</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">IRFC: Received GST show cause notice over FY23 ITC claim.</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">HCL Infosystems: 40th AGM on Sept 16 to approve ₹1,500 crore promoter-group financial support.</div></div>
+<div id="sec-calendar" class="section-header-card rose"><span class="section-icon">📅</span><h3>Upcoming Events in Google Calendar</h3></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">Monday, Aug 31: Indian Oil Corporation Ltd (67th AGM at 11:00 AM IST), Savita Oil Technologies Ltd (65th AGM at 11:00 AM IST).</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">Wednesday, Sep 2: Deccan Gold Mines Ltd (EGM at 11:30 AM IST).</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">Thursday, Sep 10: Delta Corp Ltd (35th AGM at 11:00 AM IST; Re. 0.50/share final dividend).</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">Wednesday, Sep 16: HCL Infosystems Ltd (40th AGM at 11:00 AM IST).</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">Monday, Sep 28: NMDC Ltd (68th AGM at 11:00 AM IST).</div></div>
+<div class="bullet-item"><span class="bullet-dot">•</span><div class="bullet-text">Monday, Oct 5: NMDC Ltd (Record Date for Final Dividend of ₹1.00/share).</div></div>
+<div class="link-card">Spreadsheet Tracker Link: <a href="https://docs.google.com/spreadsheets/d/1_rWhyap8gO-u8ehP1vDCiad-RwnFjGBCn2R5qiis4_A/edit" target="_blank" rel="noopener" class="link-btn">📊 Google Sheets Daily Tracker</a></div>
     </div>
 
     <footer>
-      Auto-generated from Daily 7 AM Email • Powered by GitHub Actions & Pages
+      Auto-generated from Daily 7:00 AM Email • Strictly verified & updated via GitHub Actions
     </footer>
   </main>
 
@@ -395,7 +664,7 @@
       const target = current === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', target);
       document.getElementById('theme-icon').innerText = target === 'dark' ? '☀️' : '🌙';
-      document.getElementById('theme-text').innerText = target === 'dark' ? 'Light Mode' : 'Dark Mode';
+      document.getElementById('theme-text').innerText = target === 'dark' ? 'Light' : 'Dark';
       localStorage.setItem('theme', target);
     }
 
@@ -403,7 +672,7 @@
     if (savedTheme === 'dark') {
       document.documentElement.setAttribute('data-theme', 'dark');
       document.getElementById('theme-icon').innerText = '☀️';
-      document.getElementById('theme-text').innerText = 'Light Mode';
+      document.getElementById('theme-text').innerText = 'Light';
     }
   </script>
 </body>

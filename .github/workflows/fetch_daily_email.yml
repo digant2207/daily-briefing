@@ -2,6 +2,8 @@ name: Fetch Daily Briefing Email & Update GitHub Page
 
 on:
   schedule:
+    # 7:00 AM IST (01:30 UTC)
+    - cron: '30 1 * * *'
     # 7:15 AM IST (01:45 UTC)
     - cron: '45 1 * * *'
     # 7:30 AM IST (02:00 UTC)
@@ -10,10 +12,16 @@ on:
     - cron: '15 2 * * *'
     # 8:00 AM IST (02:30 UTC)
     - cron: '30 2 * * *'
+    # 8:15 AM IST (02:45 UTC)
+    - cron: '45 2 * * *'
     # 8:30 AM IST (03:00 UTC)
     - cron: '0 3 * * *'
     # 9:00 AM IST (03:30 UTC)
     - cron: '30 3 * * *'
+    # 9:30 AM IST (04:00 UTC)
+    - cron: '0 4 * * *'
+    # 10:00 AM IST (04:30 UTC)
+    - cron: '30 4 * * *'
   workflow_dispatch: # Allows manual trigger anytime from GitHub Actions tab
 
 permissions:
@@ -44,7 +52,7 @@ jobs:
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
           SENDER_FILTER: ${{ secrets.SENDER_FILTER }}
-          SUBJECT_FILTER: ${{ secrets.SUBJECT_FILTER }}
+          SUBJECT_FILTER: ${{ secrets.SUBJECT_FILTER || 'Daily Stock Report' }}
         run: |
           python fetch_email.py
 

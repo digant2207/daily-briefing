@@ -1,54 +1,41 @@
-# Automated Daily Briefing Email to GitHub Pages 🚀
+# Automated Daily Stock Report to Mobile-Friendly GitHub Page 🚀
 
-This repository automatically logs into your email inbox daily at **7:30 AM IST (02:00 UTC)**, fetches your **7:00 AM daily briefing email**, extracts its HTML content, and publishes it live as a clean, responsive web page hosted on **GitHub Pages**.
-
----
-
-## 📋 What is Included
-
-1. **`fetch_email.py`**: Python script that securely connects via IMAP, parses the latest daily email, and builds `index.html`.
-2. **`.github/workflows/fetch_daily_email.yml`**: GitHub Actions workflow running on a daily schedule (`cron: '0 2 * * *'`) and manual trigger.
-3. **`index.html`**: Responsive, theme-aware web page template (Light/Dark mode toggle, executive header, formatted email content container).
+This repository automatically logs into your Gmail inbox every morning, strictly fetches your **"Daily Stock Report"** email, formats it into an executive mobile-first dashboard, and publishes it live to **GitHub Pages**.
 
 ---
 
-## 🔑 Setup Instructions (3 Simple Steps)
+## 📋 Features & Architecture
 
-### Step 1: Set up GitHub Repository Secrets
-Go to your GitHub Repository -> **Settings** -> **Secrets and variables** -> **Actions** -> **New repository secret**.
+1. **Strict Filter Verification**: `fetch_email.py` strictly checks incoming email headers for `"Daily Stock Report"`. It will never read or overwrite pages with unrelated inbox emails (e.g. OTPs, newsletters, personal emails).
+2. **Multi-Interval Morning Cron Schedule**: Runs automatically at **7:00 AM, 7:15 AM, 7:30 AM, 7:45 AM, 8:00 AM, 8:15 AM, 8:30 AM, 9:00 AM, 9:30 AM, and 10:00 AM IST** to catch both on-time and late-arriving emails.
+3. **Mobile-First Reading UI**:
+   - **Quick-Jump Pills**: Instantly jump to `🎯 52W High/Low`, `📊 Market Setup`, `🚨 Breakouts`, `⚡ Circuits`, `🔥 Volume Surges`, `📈 MA Crossover`, and `📅 Calendar`.
+   - **Modern Data Tables**: Touch-friendly horizontal scrolling table with color-coded positive/negative change chips and volume surge tags.
+   - **Breakout Alert Callouts**: Glowing alert cards for level breaches.
+   - **Dark / Light Theme Toggle**: Automatically follows system preference with instant one-tap toggle.
+   - **PWA & iOS Web App Support**: Can be added directly to your mobile home screen.
 
-Add the following Secrets:
+---
 
-| Secret Name | Value | Example |
+## 🔑 GitHub Repository Secrets Configuration
+
+Go to your GitHub Repository -> **Settings** -> **Secrets and variables** -> **Actions** -> **Repository secrets**:
+
+| Secret Name | Value | Description |
 | :--- | :--- | :--- |
-| `EMAIL_USER` | Your full email address | `yourname@gmail.com` |
-| `EMAIL_PASS` | App Password (not your main password) | `abcd efgh ijkl mnop` |
-| `IMAP_SERVER` | Your email provider's IMAP host | `imap.gmail.com` (Gmail) or `outlook.office365.com` (Outlook) |
-| `IMAP_PORT` | IMAP SSL Port (Optional) | `993` (default) |
-| `SENDER_FILTER` | (Optional) Specific sender email to target | `briefing@domain.com` |
-| `SUBJECT_FILTER` | (Optional) Subject line phrase to target | `Daily Brief` |
+| `EMAIL_USER` | Your full Gmail address | e.g. `yourname@gmail.com` |
+| `EMAIL_PASS` | Gmail App Password (16 chars) | e.g. `abcd efgh ijkl mnop` |
+| `IMAP_SERVER` | `imap.gmail.com` | IMAP server (defaults to `imap.gmail.com`) |
+| `IMAP_PORT` | `993` | IMAP SSL port (defaults to `993`) |
+| `SUBJECT_FILTER` | `Daily Stock Report` | Target subject phrase (defaults to `Daily Stock Report`) |
+| `SENDER_FILTER` | *(Optional)* | Filter by sender email if desired |
 
-> 💡 **For Gmail users**: Generate an App Password via [Google Account -> Security -> 2-Step Verification -> App Passwords](https://myaccount.google.com/apppasswords).
-
----
-
-### Step 2: Enable GitHub Pages
-1. Go to your repository **Settings** -> **Pages**.
-2. Under **Build and deployment** -> **Source**, select **Deploy from a branch**.
-3. Choose `main` branch and `/ (root)` directory.
-4. Click **Save**.
-
----
-
-### Step 3: Test & Run Workflow
-1. Go to the **Actions** tab in your GitHub repository (`https://github.com/digant2207/daily-briefing`).
-2. Select **Fetch Daily Briefing Email & Update GitHub Page** on the left.
-3. Click **Run workflow** -> **Run workflow**.
-4. Once completed, your GitHub Pages site will be live at:
-   `https://digant2207.github.io/daily-briefing/`
+> 💡 **For Gmail App Passwords**: Generate a 16-character App Password via [Google Account -> Security -> 2-Step Verification -> App Passwords](https://myaccount.google.com/apppasswords).
 
 ---
 
 ## ⏰ Schedule Details
-- **Email Received**: 7:00 AM IST daily.
-- **Workflow Runs**: 7:30 AM IST (02:00 UTC) daily.
+
+- **Email Expected**: ~7:00 AM IST (or slightly later).
+- **Automated Workflow Checks**: Every 15-30 mins between 7:00 AM IST and 10:00 AM IST.
+- **Manual Trigger**: Go to **Actions** -> **Fetch Daily Briefing Email & Update GitHub Page** -> **Run workflow** anytime.
