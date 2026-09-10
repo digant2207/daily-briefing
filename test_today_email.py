@@ -109,5 +109,5 @@ email_data = {
     "fetched_at": datetime.now().strftime("%B %d, %Y - %I:%M %p IST")
 }
 
-generate_html_page(email_data)
+generate_html_page(email_data, force=True)
 print("Successfully generated index.html with new mobile design!")

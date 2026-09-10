@@ -34,9 +34,8 @@ Go to your GitHub Repository -> **Settings** -> **Secrets and variables** -> **A
 
 ---
 
-## ⏰ Schedule Details (Cloud-Automated - No Laptop Required)
+## ⏰ Schedule Details (Simple Once-A-Day Morning Update)
 
-- **Morning Window (06:30 AM – 11:30 AM IST)**: Automatically scans inbox every 15 minutes.
-- **Trading Hours & Afternoon (11:30 AM – 04:30 PM IST)**: Scans inbox every 30 minutes.
-- **Evening Catch-up (04:30 PM – 10:30 PM IST)**: Scans inbox hourly.
+- **Morning Scan Window**: Runs every 15 minutes between **07:00 AM and 10:30 AM IST**.
+- **Once-A-Day Update**: As soon as today's morning email arrives, the page updates once. Subsequent checks recognize that today's report is already published and automatically skip to prevent duplicate commits.
 - **Manual Trigger**: Go to **Actions** -> **Fetch Daily Briefing Email & Update GitHub Page** -> **Run workflow** anytime.

@@ -382,7 +382,7 @@ def fetch_latest_daily_email():
     print(f"No email matching subject '{target_keyword}' found in the inbox. No changes made.")
     return None
 
-def generate_html_page(email_data):
+def generate_html_page(email_data, force=False):
     if not email_data:
         print("No email data provided to generate HTML.")
         return False
@@ -392,6 +392,18 @@ def generate_html_page(email_data):
     date_sent = email_data["date"]
     body = email_data["body"]
     fetched_at = email_data["fetched_at"]
+
+    # Only update once per day: skip regeneration if this email is already live on the page
+    if not force and os.path.exists("index.html"):
+        try:
+            with open("index.html", "r", encoding="utf-8") as f:
+                existing_html = f.read()
+            if f"<strong>Date:</strong> {date_sent}</div>" in existing_html:
+                print(f"[ONCE-A-DAY] Email from '{date_sent}' is ALREADY published on index.html.")
+                print("[ONCE-A-DAY] Skipping regeneration. Page is updated strictly once a day.")
+                return False
+        except Exception as e:
+            print(f"Notice while checking existing index.html: {e}")
 
     html_template = f"""<!DOCTYPE html>
 <html lang="en">
