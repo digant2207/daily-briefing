@@ -3,8 +3,12 @@ import sys
 import imaplib
 import email
 from email.header import decode_header
-from datetime import datetime, date
+from datetime import datetime, date, timezone, timedelta
 import re
+
+def get_ist_now():
+    ist_tz = timezone(timedelta(hours=5, minutes=30))
+    return datetime.now(timezone.utc).astimezone(ist_tz)
 
 try:
     from bs4 import BeautifulSoup
@@ -365,9 +369,9 @@ def fetch_latest_daily_email():
                     return {
                         "subject": subject,
                         "from": from_addr or EMAIL_USER,
-                        "date": date_sent or datetime.now().strftime("%a, %d %b %Y %H:%M:%S"),
+                        "date": date_sent or get_ist_now().strftime("%a, %d %b %Y %H:%M:%S IST"),
                         "body": body_formatted,
-                        "fetched_at": datetime.now().strftime("%B %d, %Y - %I:%M %p IST")
+                        "fetched_at": get_ist_now().strftime("%B %d, %Y - %I:%M %p IST")
                     }
 
         except Exception as e:

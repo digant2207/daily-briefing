@@ -34,8 +34,9 @@ Go to your GitHub Repository -> **Settings** -> **Secrets and variables** -> **A
 
 ---
 
-## ⏰ Schedule Details
+## ⏰ Schedule Details (Cloud-Automated - No Laptop Required)
 
-- **Email Expected**: ~7:00 AM IST (or slightly later).
-- **Automated Workflow Checks**: Every 15-30 mins between 7:00 AM IST and 10:00 AM IST.
+- **Morning Window (06:30 AM – 11:30 AM IST)**: Automatically scans inbox every 15 minutes.
+- **Trading Hours & Afternoon (11:30 AM – 04:30 PM IST)**: Scans inbox every 30 minutes.
+- **Evening Catch-up (04:30 PM – 10:30 PM IST)**: Scans inbox hourly.
 - **Manual Trigger**: Go to **Actions** -> **Fetch Daily Briefing Email & Update GitHub Page** -> **Run workflow** anytime.
