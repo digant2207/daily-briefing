@@ -9,10 +9,20 @@ on:
       - 'README.md'
       - '.gitignore'
   schedule:
-    # Check every 15 minutes between 06:30 AM and 12:30 PM IST (01:00 to 07:00 UTC)
+    # Check every 15 minutes between 06:30 AM and 01:00 PM IST (01:00 to 07:30 UTC)
     # Automatically idles once today's morning email is published
     - cron: '*/15 1-7 * * *'
-  workflow_dispatch: # Allows manual trigger anytime from GitHub Actions tab
+    # Additional checks at 08:00 UTC (1:30 PM IST) and 10:00 UTC (3:30 PM IST)
+    - cron: '0 8,10 * * *'
+  workflow_dispatch: # Allows manual trigger anytime from GitHub Actions tab or API
+    inputs:
+      force_update:
+        description: 'Force overwrite index.html even if today report is already published (true/false)'
+        required: false
+        default: 'false'
+        type: boolean
+  repository_dispatch: # Allows external cron jobs (e.g. cron-job.org, webhook)
+    types: [cron_trigger, daily_brief, fetch_email]
 
 permissions:
   contents: write
@@ -46,6 +56,7 @@ jobs:
           IMAP_PORT: ${{ secrets.IMAP_PORT }}
           SENDER_FILTER: ${{ secrets.SENDER_FILTER }}
           SUBJECT_FILTER: ${{ secrets.SUBJECT_FILTER }}
+          FORCE_UPDATE: ${{ github.event.inputs.force_update || github.event.client_payload.force_update || 'false' }}
         run: |
           python fetch_email.py
 

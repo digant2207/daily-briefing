@@ -24,6 +24,7 @@ EMAIL_USER = os.getenv("EMAIL_USER", "").strip()
 EMAIL_PASS = os.getenv("EMAIL_PASS", "").strip()
 SENDER_FILTER = os.getenv("SENDER_FILTER", "").strip()
 SUBJECT_FILTER = os.getenv("SUBJECT_FILTER", "Daily Stock Report").strip() or "Daily Stock Report"
+FORCE_UPDATE = os.getenv("FORCE_UPDATE", "false").strip().lower() in ("true", "1", "yes")
 
 def clean_header_str(header_value):
     if not header_value:
@@ -276,24 +277,24 @@ def fetch_latest_daily_email():
     try:
         status, messages = mail.search(None, f'SUBJECT "{target_keyword}"')
         if status == "OK" and messages[0]:
-            candidate_ids = messages[0].split()
+            candidate_ids = [m for m in messages[0].split() if m]
     except Exception as err:
         print(f"Direct IMAP subject search error: {err}")
 
     # Strategy 2: If IMAP subject search returned empty, search recent messages to check headers
-    if not candidate_ids or candidate_ids == [b'']:
+    if not candidate_ids:
         print("Searching recent inbox messages for header verification...")
         try:
             status, messages = mail.search(None, "ALL")
             if status == "OK" and messages[0]:
-                all_ids = messages[0].split()
+                all_ids = [m for m in messages[0].split() if m]
                 # Check the most recent 100 emails
                 candidate_ids = all_ids[-100:] if len(all_ids) > 100 else all_ids
         except Exception as err:
             print(f"Error fetching recent message IDs: {err}")
             candidate_ids = []
 
-    if not candidate_ids or candidate_ids == [b'']:
+    if not candidate_ids:
         print("No messages available in INBOX.")
         mail.logout()
         return None
@@ -1045,6 +1046,7 @@ def generate_html_page(email_data, force=False):
 if __name__ == "__main__":
     email_data = fetch_latest_daily_email()
     if email_data:
-        generate_html_page(email_data)
+        generate_html_page(email_data, force=FORCE_UPDATE)
     else:
         print("No new target email to process. Existing page retained.")
+
